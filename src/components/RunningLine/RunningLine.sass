@@ -1,0 +1,136 @@
+// Single perimeter marquee, no border lines - the scrolling text itself
+// is the frame. Each edge strip is clipped into a trapezoid so it meets
+// its neighbour at a 45deg mitered corner, like a picture frame.
+
+.running-frame
+  --rl-speed: 18s
+  position: fixed
+  inset: 0
+  z-index: 40
+  pointer-events: none
+
+  &__edge
+    position: fixed
+    overflow: hidden
+    background-color: #000000
+
+    &--top
+      top: 0
+      left: 0
+      right: 0
+      height: var(--rl-thickness)
+      clip-path: polygon(0 0, 100% 0, calc(100% - var(--rl-thickness)) 100%, var(--rl-thickness) 100%)
+
+    &--right
+      top: 0
+      right: 0
+      bottom: 0
+      width: var(--rl-thickness)
+      clip-path: polygon(100% 0, 100% 100%, 0 calc(100% - var(--rl-thickness)), 0 var(--rl-thickness))
+
+    &--bottom
+      left: 0
+      right: 0
+      bottom: 0
+      height: var(--rl-thickness)
+      clip-path: polygon(0 0, 100% 0, calc(100% - var(--rl-thickness)) 100%, var(--rl-thickness) 100%)
+      pointer-events: auto
+      transform: rotate(180deg)
+
+    &--left
+      top: 0
+      bottom: 0
+      left: 0
+      width: var(--rl-thickness)
+      clip-path: polygon(0 0, 100% var(--rl-thickness), 100% calc(100% - var(--rl-thickness)), 0 100%)
+
+  &__track
+    display: flex
+    align-items: center
+    white-space: nowrap
+    width: max-content
+
+    &--h
+      flex-direction: row
+      height: 100%
+
+    &--v
+      flex-direction: column
+      width: 100%
+      writing-mode: vertical-rl
+      white-space: nowrap
+      overflow: hidden
+
+    &--to-right
+      animation: rl-scroll-to-right var(--rl-speed) linear infinite
+
+    &--to-left
+      animation: rl-scroll-to-right var(--rl-speed) linear infinite
+
+    &--to-down
+      animation: rl-scroll-to-down var(--rl-speed) linear infinite
+
+    &--to-up
+      animation: rl-scroll-to-up var(--rl-speed) linear infinite
+
+  &__text
+    display: inline-block
+    // padding-right: 3rem
+    color: #ffffff
+    font-family: 'Roboto Flex', sans-serif
+    font-weight: 400
+    font-size: var(--rl-font)
+    letter-spacing: 0.04em
+    text-transform: uppercase
+
+    &--v
+      padding-right: 0
+      padding-bottom: 3rem
+
+    &--v-rev
+      padding-right: 0
+      padding-bottom: 3rem
+      transform: rotate(180deg)
+
+  &__overlay
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    height: 100%
+    display: flex
+    align-items: center
+    padding: 0 1rem
+    background-color: #000000
+    pointer-events: auto
+
+// clockwise flow: top runs left->right, right runs top->bottom,
+// bottom runs right->left, left runs bottom->top
+
+@keyframes rl-scroll-to-right
+  from
+    transform: translateX(120%)
+  to
+    transform: translateX(-120%)
+
+@keyframes rl-scroll-to-left
+  from
+    transform: translateX(-120%)
+  to
+    transform: translateX(120%)
+
+@keyframes rl-scroll-to-down
+  from
+    transform: translateY(120%)
+  to
+    transform: translateY(-120%)
+
+@keyframes rl-scroll-to-up
+  from
+    transform: translateY(-120%)
+  to
+    transform: translateY(120%)
+
+@media (prefers-reduced-motion: reduce)
+  .running-frame__track
+    animation: none
