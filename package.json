@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "yarn build; gh-pages -d dist"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
