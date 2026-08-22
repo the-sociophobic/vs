@@ -20,7 +20,13 @@ function parseRatio(ratio) {
  * - button2: { label, url } bottom-right white button, opens in new tab
  * - hidden: if true, card renders as an empty box with only a white border
  */
-export default function Card({ ratio = '487x242', pic = '', button1, button2, hidden = false }) {
+export default function Card({
+  ratio = '487x242',
+  pic = '',
+  button1,
+  button2,
+  hidden = false
+}) {
   const { w, h } = parseRatio(ratio)
   const hasButton1 = button1 && button1.label
   const hasButton2 = button2 && button2.label
@@ -59,6 +65,16 @@ export default function Card({ ratio = '487x242', pic = '', button1, button2, hi
               )}
             </div>
           )}
+
+          {/* <iframe
+            src="https://vk.ru/video_ext.php?oid=123130647&id=456240176&autoplay=1"
+            width="853"
+            height="480"
+            style={{backgroundColor: '#000'}}
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+            frameBorder="0"
+            allowFullScreen
+          /> */}
         </>
       )}
     </div>
