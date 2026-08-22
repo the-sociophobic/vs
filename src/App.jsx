@@ -19,34 +19,34 @@ const cardsData = [
   {
     ratio: '',
     pic: '0.png',
-    button1: {
+    button2: {
       label: 'Rec',
       url: 'https://vkvideo.ru/video123130647_456239866',
       thumbnail: 'https://iv.okcdn.ru/getVideoPreview?id=13265621879319&idx=1&type=39&tkn=vx_PbZJ5XWBSz9EbWXL0a-gWpuo&fn=vid_u'
     },
-    button2: { label: '', url: '' },
+    button1: { label: '', url: '' },
     hidden: false
   },
   {
     ratio: '',
     pic: '1.png',
-    button1: {
+    button2: {
       label: 'Rec',
       url: 'https://vkvideo.ru/video123130647_456240122',
       thumbnail: 'https://iv.okcdn.ru/getVideoPreview?id=15759175518743&idx=0&type=39&tkn=5meQY4ZOy_zO3mD4-VhewEXWOkM&fn=vid_u',
     },
-    button2: { label: '', url: '' },
+    button1: { label: '', url: '' },
     hidden: false
   },
   {
     ratio: '',
     pic: '2.png',
-    button1: {
+    button2: {
       label: 'Rec',
       url: 'https://vkvideo.ru/video123130647_456240176',
       thumbnail: 'https://iv.okcdn.ru/getVideoPreview?id=17385868823063&idx=2&type=39&tkn=B5wS7c44BsRJ_tSj0oCHrE19QyI&fn=vid_u',
     },
-    button2: { label: '', url: '' },
+    button1: { label: '', url: '' },
     hidden: false
   },
   {
@@ -73,6 +73,7 @@ export default function App() {
         <div className='page__cards'>
           {mappedCards[0]}
           <Description />
+          <h2 className='text-center my-3'>Прошедшие события</h2>
           {mappedCards.slice(1)}
         </div>
         <div className='page__footer-text text-center py-3 mt-4'>
