@@ -77,7 +77,7 @@ export default function App() {
 
   return (
     <div className='page'>
-      <RunningLine text='ВНИМАНИЕ 22 АВГУСТА ПРОДАЁТСЯ ВИШНЁВЫЙ САД → АУКЦИОН → БАЛ'>
+      <RunningLine text='ВНИМАНИЕ 22 АВГУСТА БЫЛ ПРОДАН ВИШНЁВЫЙ САД'>
       </RunningLine>
 
       <main className='page__content container-fluid'>
