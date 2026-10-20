@@ -9,13 +9,13 @@ import Description from './components/Description/Description.jsx'
 // Cards data. Fill in real values later; empty strings are placeholders.
 // ratio: '' falls back to the Card default of 487x242.
 const cardsData = [
-  {
-    ratio: '',
-    pic: '',
-    button1: { label: '', url: '' },
-    button2: { label: '', url: '' },
-    hidden: true
-  },
+  // {
+  //   ratio: '',
+  //   pic: '',
+  //   button1: { label: '', url: '' },
+  //   button2: { label: '', url: '' },
+  //   hidden: true
+  // },
   {
     ratio: '',
     pic: '0.png',
@@ -54,6 +54,17 @@ const cardsData = [
     pic: '3.png',
     button1: { label: 'Аукцион', url: 'https://vkvideo.ru/live-240861697_456239017' },
     button2: { label: 'Бал', url: 'https://vkvideo.ru/live-240861697_456239017' },
+    hidden: false
+  },
+  {
+    ratio: '',
+    pic: '4.jpg',
+    button2: {
+      label: 'Rec',
+      url: 'https://vkvideo.ru/video123130647_456240208',
+      thumbnail: 'https://iv.okcdn.ru/getVideoPreview?id=17385868823063&idx=2&type=39&tkn=B5wS7c44BsRJ_tSj0oCHrE19QyI&fn=vid_u',
+    },
+    button1: { label: '', url: '' },
     hidden: false
   },
 ].reverse()
